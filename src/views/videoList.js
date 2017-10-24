@@ -1,12 +1,11 @@
 var VideoListView = Backbone.View.extend({
   
   initialize: function() {
-    // this.render();
     this.on('change', this.render(), this);
-    _.each(this.collection, video => {
+    _.each(this.collection.models, video => {
       new VideoListEntryView({
         el: '.video-list div',
-        video: video
+        model: video
       });
     });
   },
