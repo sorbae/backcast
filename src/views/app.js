@@ -17,7 +17,8 @@ var AppView = Backbone.View.extend({
     });
     
     new SearchView({
-      el: '.search'
+      el: '.search',
+      collection: this.collection
     });
     
     
