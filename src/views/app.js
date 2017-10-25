@@ -4,8 +4,18 @@ var AppView = Backbone.View.extend({
   
   initialize: function() {
     this.render();
-    this.collection = new Videos(window.exampleVideoData);
-    
+    this.collection = new Videos(exampleVideoData);
+    this.collection.fetch({
+      data: {
+        q: 'pikachu',
+        key: 'AIzaSyA8_E2B8PY3Dku7bNyex6zxpcfLLDVjeD0',
+        maxResults: '5',
+        part: 'snippet'
+      },
+      success: function(data) {
+        console.log(data);
+      }
+    });
     new VideoPlayerView({
       el: '.player',
       model: this.collection.models[0]
@@ -23,6 +33,10 @@ var AppView = Backbone.View.extend({
     
     
   },
+  
+  // search: function(query) {
+
+  // },
 
   render: function() {
     this.$el.html(this.template());
