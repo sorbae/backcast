@@ -8,6 +8,7 @@ var VideoListEntryView = Backbone.View.extend({
   
   initialize: function() {
     this.on('change', this.render(), this);
+    this.render();
   },
   
   handleClick: function() {

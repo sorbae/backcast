@@ -1,13 +1,14 @@
 var AppView = Backbone.View.extend({
   model: Video,
   el: '#app',
-
+  
   initialize: function() {
     this.render();
     this.collection = new Videos(window.exampleVideoData);
     
     new VideoPlayerView({
-      el: '.player'
+      el: '.player',
+      model: this.collection.models[0]
     });
     
     new VideoListView({
@@ -18,6 +19,7 @@ var AppView = Backbone.View.extend({
     new SearchView({
       el: '.search'
     });
+    
     
   },
 
